@@ -19,12 +19,18 @@ export default function Home() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent -z-10" />
 
       {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-start pt-28 px-10 md:px-24">
+      <div className="relative z-10 flex-1 flex flex-col justify-start pt-20 px-10 md:px-24">
         <div className="max-w-2xl space-y-3">
 
           {/* Heading */}
           <div className="space-y-1">
-            <h1 className="text-4xl md:text-5xl font-black leading-[1.1] uppercase tracking-tighter">
+  {/* Badge */}
+  <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold px-4 py-1.5 rounded-full mb-2">
+    <span>🇰🇪</span>
+    <span>Nairobi&apos;s #1 Tyre Broker</span>
+  </div>
+
+  <h1 className="text-4xl md:text-5xl font-black leading-[1.1] uppercase tracking-tighter">
               Dominate the Road <br /> With Confidence
             </h1>
             <p className="text-lg md:text-xl font-semibold opacity-90 text-orange-500">
