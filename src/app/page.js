@@ -19,7 +19,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent -z-10" />
 
       {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-start pt-20 px-10 md:px-24">
+      <div className="relative z-10 flex-1 flex flex-col justify-start pt-10 px-10 md:px-24">
         <div className="max-w-2xl space-y-3">
 
           {/* Heading */}
@@ -76,6 +76,28 @@ export default function Home() {
               </button>
             </div>
           </div>
+          {/* Stats Bar */}
+<div className="flex flex-wrap gap-6 mt-2">
+  <div className="flex items-center gap-2">
+    <span className="text-orange-500 font-black text-lg">500+</span>
+    <span className="text-gray-400 text-xs uppercase tracking-widest">Tyre Brands</span>
+  </div>
+  <div className="w-px bg-gray-700 self-stretch" />
+  <div className="flex items-center gap-2">
+    <span className="text-orange-500 font-black text-lg">24hr</span>
+    <span className="text-gray-400 text-xs uppercase tracking-widest">Delivery</span>
+  </div>
+  <div className="w-px bg-gray-700 self-stretch" />
+  <div className="flex items-center gap-2">
+    <span className="text-orange-500 font-black text-lg">100%</span>
+    <span className="text-gray-400 text-xs uppercase tracking-widest">Pay On Delivery</span>
+  </div>
+  <div className="w-px bg-gray-700 self-stretch" />
+  <div className="flex items-center gap-2">
+    <span className="text-orange-500 font-black text-lg">🇰🇪</span>
+    <span className="text-gray-400 text-xs uppercase tracking-widest">Nairobi Wide</span>
+  </div>
+</div>
 
         </div>
       </div>
