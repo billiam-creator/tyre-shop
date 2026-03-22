@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { RiShoppingCartLine } from 'react-icons/ri'
 import { HiMenuAlt3, HiX } from 'react-icons/hi'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -16,6 +17,7 @@ const navLinks = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
     <nav className='fixed top-0 w-full z-50 bg-black border-b border-gray-800'>
@@ -35,16 +37,20 @@ const Navbar = () => {
 
         {/* Desktop Nav Links */}
         <ul className='hidden md:flex items-center gap-8'>
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className='text-gray-300 hover:text-orange-500 transition-colors text-sm font-medium'
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+        {navLinks.map((link) => (
+  <li key={link.href}>
+    <Link
+      href={link.href}
+      className={`transition-colors text-sm font-medium ${
+        pathname === link.href
+          ? 'text-orange-500 font-bold'
+          : 'text-gray-300 hover:text-orange-500'
+      }`}
+    >
+      {link.label}
+    </Link>
+  </li>
+))}
         </ul>
 
         {/* Right Side — Cart + CTA */}
@@ -77,15 +83,19 @@ const Navbar = () => {
       {menuOpen && (
         <div className='md:hidden bg-black border-t border-gray-800 px-6 py-4 flex flex-col gap-4'>
           {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className='text-gray-300 hover:text-orange-500 transition-colors text-base font-medium'
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
+  <Link
+    key={link.href}
+    href={link.href}
+    className={`transition-colors text-base font-medium ${
+      pathname === link.href
+        ? 'text-orange-500 font-bold'
+        : 'text-gray-300 hover:text-orange-500'
+    }`}
+    onClick={() => setMenuOpen(false)}
+  >
+    {link.label}
+  </Link>
+))}
           <Link
             href='/tyres'
             className='bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-5 py-2 rounded-full transition-colors text-center mt-2'
