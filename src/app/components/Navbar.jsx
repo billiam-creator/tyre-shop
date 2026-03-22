@@ -24,7 +24,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link href='/' className='hover:opacity-80 transition-opacity'>
   <Image
-    src='/logo 2.jpg'
+    src='/logo.jpg'
     alt='Nairobi Tyres Logo'
     width={100}
     height={20}
