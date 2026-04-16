@@ -19,8 +19,8 @@ export default function Home() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent -z-10" />
 
       {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-start pt-10 px-10 md:px-24">
-        <div className="max-w-2xl space-y-3">
+      <div className="relative z-10 flex-1 flex flex-col justify-start pt-6 px-10 md:px-24">
+        <div className="max-w-2xl space-y-2">
 
           {/* Heading */}
           <div className="space-y-1">
@@ -56,7 +56,7 @@ export default function Home() {
           </div>
 
           {/* Tyre Finder */}
-          <div className="w-full max-w-lg bg-black/40 backdrop-blur-md p-5 rounded-xl border border-white/10 shadow-2xl">
+          <div className="w-full max-w-lg bg-black/40 backdrop-blur-md p-3 rounded-xl border border-white/10 shadow-2xl">
             <p className="text-[10px] font-bold text-gray-400 mb-3 tracking-[0.2em] uppercase">
               Start Your Tyre Finder
             </p>
@@ -77,7 +77,7 @@ export default function Home() {
             </div>
           </div>
           {/* Stats Bar */}
-<div className="flex flex-wrap gap-6 mt-2">
+<div className="flex flex-wrap gap-6 mt-1">
   <div className="flex items-center gap-2">
     <span className="text-orange-500 font-black text-lg">500+</span>
     <span className="text-gray-400 text-xs uppercase tracking-widest">Tyre Brands</span>
