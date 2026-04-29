@@ -1,10 +1,25 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 import Button from './components/Button'
+import TyreCard from './components/TyreCard'
+
+const featuredTyres = [
+  { brand: 'Michelin', model: 'Pilot Sport 5', price: '24,500', image: '/michelin.jpg', tag: 'Best Seller' },
+  { brand: 'Goodyear', model: 'Eagle F1 Asymmetric 6', price: '19,800', image: '/goodyear.jpg', tag: 'High Grip' },
+  { brand: 'Continental', model: 'SportContact 7', price: '31,000', image: '/sportcontact.jpg', tag: 'Premium' },
+  { brand: 'Pirelli', model: 'P Zero PZ4', price: '28,900', image: '/pirelli.jpg', tag: 'Sport' },
+]
+
+const categories = ['All', 'High Performance', 'SUV / 4X4', 'Eco & Touring']
 
 export default function Home() {
+  const [activeCategory, setActiveCategory] = useState('All')
+
   return (
-    <main className="relative h-screen w-full flex flex-col overflow-hidden text-white">
+    <main className="relative w-full text-white">
 
       {/* Background Image */}
       <Image
@@ -18,19 +33,19 @@ export default function Home() {
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/30 to-transparent -z-10" />
 
-      {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-start pt-6 px-10 md:px-24">
-        <div className="max-w-2xl space-y-2">
+      {/* SECTION 1 — Hero */}
+      <section className="snap-section flex flex-col justify-center px-10 md:px-24">
+        <div className="max-w-2xl space-y-2 pt-16">
+
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold px-4 py-1.5 rounded-full">
+            <span>🇰🇪</span>
+            <span>Nairobi&apos;s #1 Tyre Broker</span>
+          </div>
 
           {/* Heading */}
           <div className="space-y-1">
-  {/* Badge */}
-  <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold px-4 py-1.5 rounded-full mb-2">
-    <span>🇰🇪</span>
-    <span>Nairobi&apos;s #1 Tyre Broker</span>
-  </div>
-
-  <h1 className="text-4xl md:text-5xl font-black leading-[1.1] uppercase tracking-tighter">
+            <h1 className="text-4xl md:text-5xl font-black leading-[1.1] uppercase tracking-tighter">
               Dominate the Road <br /> With Confidence
             </h1>
             <p className="text-lg md:text-xl font-semibold opacity-90 text-orange-500">
@@ -57,7 +72,7 @@ export default function Home() {
 
           {/* Tyre Finder */}
           <div className="w-full max-w-lg bg-black/40 backdrop-blur-md p-3 rounded-xl border border-white/10 shadow-2xl">
-            <p className="text-[10px] font-bold text-gray-400 mb-3 tracking-[0.2em] uppercase">
+            <p className="text-[10px] font-bold text-gray-400 mb-2 tracking-[0.2em] uppercase">
               Start Your Tyre Finder
             </p>
             <div className="flex gap-2">
@@ -76,31 +91,90 @@ export default function Home() {
               </button>
             </div>
           </div>
+
           {/* Stats Bar */}
-<div className="flex flex-wrap gap-6 mt-1">
-  <div className="flex items-center gap-2">
-    <span className="text-orange-500 font-black text-lg">500+</span>
-    <span className="text-gray-400 text-xs uppercase tracking-widest">Tyre Brands</span>
-  </div>
-  <div className="w-px bg-gray-700 self-stretch" />
-  <div className="flex items-center gap-2">
-    <span className="text-orange-500 font-black text-lg">24hr</span>
-    <span className="text-gray-400 text-xs uppercase tracking-widest">Delivery</span>
-  </div>
-  <div className="w-px bg-gray-700 self-stretch" />
-  <div className="flex items-center gap-2">
-    <span className="text-orange-500 font-black text-lg">100%</span>
-    <span className="text-gray-400 text-xs uppercase tracking-widest">Pay On Delivery</span>
-  </div>
-  <div className="w-px bg-gray-700 self-stretch" />
-  <div className="flex items-center gap-2">
-    <span className="text-orange-500 font-black text-lg">🇰🇪</span>
-    <span className="text-gray-400 text-xs uppercase tracking-widest">Nairobi Wide</span>
-  </div>
-</div>
+          <div className="flex flex-wrap gap-6">
+            <div className="flex items-center gap-2">
+              <span className="text-orange-500 font-black text-lg">500+</span>
+              <span className="text-gray-400 text-xs uppercase tracking-widest">Tyre Brands</span>
+            </div>
+            <div className="w-px bg-gray-700 self-stretch" />
+            <div className="flex items-center gap-2">
+              <span className="text-orange-500 font-black text-lg">24hr</span>
+              <span className="text-gray-400 text-xs uppercase tracking-widest">Delivery</span>
+            </div>
+            <div className="w-px bg-gray-700 self-stretch" />
+            <div className="flex items-center gap-2">
+              <span className="text-orange-500 font-black text-lg">100%</span>
+              <span className="text-gray-400 text-xs uppercase tracking-widest">Pay On Delivery</span>
+            </div>
+            <div className="w-px bg-gray-700 self-stretch" />
+            <div className="flex items-center gap-2">
+              <span className="text-orange-500 font-black text-lg">🇰🇪</span>
+              <span className="text-gray-400 text-xs uppercase tracking-widest">Nairobi Wide</span>
+            </div>
+          </div>
 
         </div>
-      </div>
+      </section>
+
+      {/* SECTION 2 — Featured Tyres */}
+      <section className="snap-section flex flex-col justify-start pt-24 px-10 md:px-24 py-10 bg-black/70 backdrop-blur-sm">
+
+        {/* Section Header */}
+        <div className="text-center mb-4">
+          <p className="text-orange-500 text-xs uppercase tracking-[0.3em] font-bold mb-2">Hand Picked For You</p>
+          <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-white">
+            Our Top Picks For The Road
+          </h2>
+          <p className="text-gray-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
+            High-performance and reliable tyres, vetted by our experts in Nairobi.
+          </p>
+        </div>
+
+        {/* Category Filter */}
+        <div className="flex gap-3 justify-center flex-wrap mb-4">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all ${
+                activeCategory === cat
+                  ? 'bg-orange-500 text-white'
+                  : 'border border-white/20 text-gray-400 hover:border-orange-500 hover:text-orange-500'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Tyre Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto w-full">
+          {featuredTyres.map((tyre, index) => (
+            <TyreCard
+              key={index}
+              brand={tyre.brand}
+              model={tyre.model}
+              price={tyre.price}
+              image={tyre.image}
+              tag={tyre.tag}
+            />
+          ))}
+        </div>
+
+        {/* See All Button */}
+        <div className="flex justify-center mt-4">
+          <Link
+            href="/tyres"
+            className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-bold text-xs uppercase px-8 py-3 rounded-full transition-all tracking-widest"
+          >
+            See All Tyres
+          </Link>
+        </div>
+
+      </section>
+
     </main>
-  );
+  )
 }

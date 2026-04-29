@@ -62,7 +62,7 @@ const Footer = () => {
             <h4 className="text-lg font-bold text-orange-500 mb-4">Contact Info</h4>
             <div className="space-y-2 text-gray-400">
               <p><span className="text-white font-semibold">Phone:</span> +254 116 73345</p>
-              <p><span className="text-white font-semibold">Email:</span> info@nairobilyres.co.ke</p>
+              <p><span className="text-white font-semibold">Email:</span> info@nairobityres.co.ke</p>
               <p><span className="text-white font-semibold">Location:</span> Nairobi, Kenya</p>
             </div>
           </div>

@@ -42,7 +42,7 @@ const ContactPage = () => {
               </div>
               <div>
                 <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Email</p>
-                <p className="text-white font-semibold">info@nairobilyres.co.ke</p>
+                <p className="text-white font-semibold">info@nairobityres.co.ke</p>
               </div>
             </div>
 
