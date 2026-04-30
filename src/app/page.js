@@ -5,6 +5,9 @@ import Link from 'next/link'
 import { useState } from 'react'
 import Button from './components/Button'
 import TyreCard from './components/TyreCard'
+import FeatureCard from './components/FeatureCard'
+import StatsBar from './components/StatsBar'
+import { ShieldCheck, Truck, Wrench, Tag, Wallet, Headset, Users, Disc, Star, MapPin } from 'lucide-react'
 
 const featuredTyres = [
   { brand: 'Michelin', model: 'Pilot Sport 5', price: '24,500', image: '/michelin.jpg', tag: 'Best Seller' },
@@ -14,6 +17,21 @@ const featuredTyres = [
 ]
 
 const categories = ['All', 'High Performance', 'SUV / 4X4', 'Eco & Touring']
+const featureCardsData = [
+  { heading: 'Premium Quality Tyres', description: 'We stock only trusted brands that deliver superior performance, safety and durability.', icon: ShieldCheck },
+  { heading: 'Fast Delivery', description: 'Quick and reliable delivery in Nairobi. Get your tyres when you need them.', icon: Truck },
+  { heading: 'Expert Fitting', description: 'Professional fitting by experienced technicians using advanced equipment.', icon: Wrench },
+  { heading: 'Competitive Pricing', description: 'Top quality tyres at the best prices. No hidden fees, just great value.', icon: Tag },
+  { heading: 'Pay On Delivery', description: "Pay when your tyres are delivered and you're satisfied. Safe, simple, and convenient.", icon: Wallet, isActive: true },
+  { heading: '24/7 Customer Support', description: 'Our team is always ready to help you choose the right tyres and answer any questions.', icon: Headset },
+]
+
+const statsData = [
+  { label: 'Happy Customers', value: '500+', icon: Users },
+  { label: 'Tyres Sold', value: '1000+', icon: Disc },
+  { label: 'Customer Rating', value: '4.8', icon: Star },
+  { label: 'Proudly Serving', value: 'Nairobi', icon: MapPin },
+]
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState('All')
@@ -174,6 +192,52 @@ export default function Home() {
         </div>
 
       </section>
+     {/* SECTION 3 — Why Choose Us  */}
+<section className="snap-section flex flex-col justify-center px-10 md:px-24 pt-24 bg-black/80 backdrop-blur-sm">
+
+{/* Header */}
+<div className="flex justify-center mb-3">
+  <span className="border border-orange-500 text-orange-500 rounded-full py-1 px-5 text-[10px] font-bold uppercase tracking-widest">
+    Why Choose Us
+  </span>
+</div>
+
+<div className="text-center mb-6">
+  <h2 className="text-3xl md:text-4xl font-black leading-tight uppercase tracking-tighter">
+    Built For Performance.<br />
+    Chosen For <span className="text-orange-500">Trust.</span>
+  </h2>
+  <p className="text-gray-400 max-w-xl mx-auto text-sm mt-2">
+    We make buying tyres simple, reliable, and worry-free.
+  </p>
+</div>
+
+{/* Feature Cards Grid */}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 max-w-7xl mx-auto w-full">
+  {featureCardsData.map((item, index) => (
+    <FeatureCard
+      key={index}
+      heading={item.heading}
+      description={item.description}
+      icon={item.icon}
+      isActive={item.isActive}
+    />
+  ))}
+</div>
+
+{/* Stats Bar */}
+<div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-7xl mx-auto w-full mt-3">
+  {statsData.map((item, index) => (
+    <StatsBar
+      key={index}
+      label={item.label}
+      value={item.value}
+      icon={item.icon}
+    />
+  ))}
+</div>
+
+</section>
 
     </main>
   )
