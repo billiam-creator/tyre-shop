@@ -25,7 +25,7 @@ const featureCardsData = [
   { heading: 'Fast Delivery', description: 'Quick and reliable delivery in Nairobi. Get your tyres when you need them.', icon: Truck },
   { heading: 'Expert Fitting', description: 'Professional fitting by experienced technicians using advanced equipment.', icon: Wrench },
   { heading: 'Competitive Pricing', description: 'Top quality tyres at the best prices. No hidden fees, just great value.', icon: Tag },
-  { heading: 'Pay On Delivery', description: "Pay when your tyres are delivered and you're satisfied. Safe, simple, and convenient.", icon: Wallet, isActive: true },
+  { heading: 'Pay On Delivery', description: "Pay when your tyres are delivered and you're satisfied. Safe, simple, and convenient.", icon: Wallet, isActive: true, tag:'CASH ON DELIVERY' },
   { heading: '24/7 Customer Support', description: 'Our team is always ready to help you choose the right tyres and answer any questions.', icon: Headset },
 ]
 
@@ -239,6 +239,7 @@ export default function Home() {
               description={item.description}
               icon={item.icon}
               isActive={item.isActive}
+              tag={item.tag}
             />
           ))}
         </div>

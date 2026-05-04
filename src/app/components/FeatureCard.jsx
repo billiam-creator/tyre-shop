@@ -1,4 +1,4 @@
-const FeatureCard = ({ heading, description, icon: Icon, isActive }) => {
+const FeatureCard = ({ heading, description, icon: Icon, isActive, tag }) => {
     return (
       <div className={`bg-[#0A0A0A] border rounded-xl p-5 transition-all duration-300 flex flex-col gap-3 ${
         isActive
@@ -19,6 +19,11 @@ const FeatureCard = ({ heading, description, icon: Icon, isActive }) => {
           <p className="text-gray-400 text-xs leading-relaxed">
             {description}
           </p>
+          {tag && (
+        <span className="inline-block bg-orange-600 text-[10px] font-black px-3 py-1 rounded-full text-white uppercase tracking-wider">
+          {tag}
+        </span>
+      )}
         </div>
   
       </div>
